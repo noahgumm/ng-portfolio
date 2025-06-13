@@ -3,7 +3,7 @@ import '../styles/ProjectCard.css';
 function ProjectCard() {
     return(
         <div>
-
+            <h1>Project</h1>
         </div>
     );
 }
