@@ -30,23 +30,25 @@ export default function Project() {
         <>
             <div className="carousel">
                 <div className={`carousel-item ${carouselIndex === 1 ? 'active' : ''}`}>
-                    <ProjectCard />
-                    <ProjectCard />
-                    <ProjectCard />
+                    <ProjectCard className='project'/>
+                    <ProjectCard className='project'/>
+                    <ProjectCard className='project'/>
                 </div>
                 <div className={`carousel-item ${carouselIndex === 2 ? 'active' : ''}`}>
-                    <ProjectCard />
-                    <ProjectCard />
-                    <ProjectCard />
+                    <ProjectCard className='project'/>
+                    <ProjectCard className='project'/>
+                    <ProjectCard className='project'/>
                 </div>
                 <div className={`carousel-item ${carouselIndex === 3 ? 'active' : ''}`}>
-                    <ProjectCard />
-                    <ProjectCard />
-                    <ProjectCard />
+                    <ProjectCard className='project'/>
+                    <ProjectCard className='project'/>
+                    <ProjectCard className='project'/>
+                </div>
+                <div className="buttons">
+                    <button onClick={decreaseIndex}>Back</button>
+                    <button onClick={increaseIndex}>Forward</button>
                 </div>
             </div>
-            <button onClick={decreaseIndex}>Back</button>
-            <button onClick={increaseIndex}>Forward</button>
         </>
     );
 }
