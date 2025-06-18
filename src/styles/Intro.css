@@ -10,6 +10,7 @@
 }
 
 .carousel-item {
+    display: grid;
     padding: 0;
     margin: 0;
     display: none;
@@ -23,16 +24,6 @@
     justify-items: center;
 }
 
-.buttons {
-    position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1rem;
-    z-index: 10;
-}
-
 .second {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto;
@@ -40,30 +31,76 @@
 
 .first {
     grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    grid-template-rows: repeat(4, auto);   /* 4 rows */
+    grid-template-rows: repeat(4, 1fr);   /* 4 rows */
 }
 
-.first > h4 {
+.first > h1:first-of-type {
     grid-row: 1;
-    grid-column: 1;
-}
-
-.first > h3 {
-    grid-row: 2;
-    grid-column: 2;
-}
-
-.first > h2 {
-    grid-row: 3;
-    grid-column: 3 / 5;
+    grid-column: 1 / 2;
 }
 
 .first > h1 {
-    grid-row: 4;
-    grid-column: 2 / 3;
+    grid-row: 2;
+    grid-column: 1 / 2;
     padding-bottom: 4vh;
+    left: 50%;
 }
 
-h3 {
+.second > h1 {
     grid-column: 1 / -1;
+}
+
+.headshot {
+    grid-column: 2 / 4;
+    grid-row: 1 / 5;
+}
+
+.backButton,
+.forwardButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    background-color: transparent;
+}
+
+.backButton {
+    left: 1rem;
+}
+
+.forwardButton {
+    right: 1rem;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.iconLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: inherit; /* optional, to match carousel text */
+    gap: 0.5em;
+}
+
+.icon {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
 }

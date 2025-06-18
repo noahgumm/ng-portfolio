@@ -1,5 +1,6 @@
 import { useState } from 'react';
-
+import { FaArrowLeft, FaArrowRight, FaGithub, FaLinkedin, FaBook} from 'react-icons/fa';
+import headshot from '../images/headshot.jpg';
 import '../styles/Intro.css';
 
 export default function Intro() {
@@ -27,34 +28,47 @@ export default function Intro() {
     }
 
     return(
-        <>
+        <div className='section' id='about'>
             <div className='carousel'>
+                <button  className='backButton' onClick={decreaseIndex}><FaArrowLeft /></button>
                 <div className={`carousel-item first ${carouselIndex === 1 ? 'active' : ''}`}>
-                    <h4> Software </h4>
+                    <h1> Software </h1>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div className='headshot'><img src={headshot} alt='headshot'/></div>
                     <div></div>
                     <div></div>
                     <div></div>
                     <div></div>
-                    <h3> Web </h3>
                     <div></div>
-                    <div></div>
-                    <div></div>
-                    <h2> and Game </h2>
                     <div></div>
                     <h1> Developer </h1>
                     <div></div>
                 </div>
                 <div className={`carousel-item second ${carouselIndex === 2 ? 'active' : ''}`}>
-                    <h3>Step into my world of code</h3>
-                    <h4>Projects</h4>
-                    <h4>LinkedIn</h4>
-                    <h4>Github</h4>
+                    <h1>Step into my world of code</h1>
+                    <a href='#projects' target='_blank' className='iconLink'>
+                        <h1>
+                            <span>Projects</span> 
+                        </h1>
+                        <FaBook className='icon'/>
+                    </a>
+                    <a href='https://www.linkedin.com/in/noah-gumm/' target='_blank' className='iconLink'>
+                        <h1>
+                            <span>LinkedIn</span>                             
+                        </h1>
+                        <FaLinkedin className='icon'/>
+                    </a>
+                    <a href='https://github.com/noahgumm' target='_blank' className='iconLink'>
+                        <h1>
+                            <span>Github</span>                            
+                        </h1>
+                        <FaGithub className='icon'/>
+                    </a>
                 </div>
-                <div className="buttons">
-                    <button onClick={decreaseIndex}>Back</button>
-                    <button onClick={increaseIndex}>Forward</button>
-                </div>
+                <button className='forwardButton' onClick={increaseIndex}><FaArrowRight /></button>
             </div>
-        </>
+        </div>
     );
 }

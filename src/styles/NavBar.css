@@ -1,10 +1,12 @@
 .navbar {
+    position: fixed;
     display: block;
     background-color: #333;
     color: white;
     padding: 0.1vw 0.1vh;
     width: 100vw;
     height: 5vh;
+    z-index: 10;
 }
 
 h1 {
@@ -18,4 +20,14 @@ h1 {
 h1:first-of-type {
     float: left;
     left: 0;
+}
+
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-emphasis: none;
+    color: white;
 }

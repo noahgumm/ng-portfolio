@@ -8,9 +8,11 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Intro />
-      <Projects />
-      <Contact />
+      <div className='scrollContainer'>
+        <Intro />
+        <Projects />
+        <Contact />
+      </div>
     </div>
   );
 }
