@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Hotel Reservation App",
+        "description": "A Hotel Reservation App that uncludes features that allow the user to view hotel rooms based on specific criteria, book rooms, check out, and edit/review bookings. This application was created over the course of a semester with a team of four of us who ahd little to no Java Servlets experience. It was a great experience to get familiar with the workings of Java and working with others to see a project through to deployment. ",
+        "tools": ["Java", "JUnit", "MySQL", "Tomcat", "Apache Ant", "Github", "Trello"],
+        "image": "/HotelReservationImage.png",
+        "github": "https://github.com/noahgumm/Hotel-Reservation-App"
+    },
+    {
+        "id": 2,
+        "title": "CLI Shell Simulator",
+        "description": "A program that mimics a basic Linux shell supporting things such as pipes, input and output redirection, along with commands like 'cat', 'cd', 'pwd', 'mkdir', and 'ls'. For a full list of commands and functionality please check the github. I learned a lot about using Linux and C++ system commands through this project. This was a semester long project that was done in four major pieces. ",
+        "tools": ["C++", "Linux","Github"],
+        "image": "/ShellImage.png",
+        "github": "https://github.com/noahgumm/shell"
+    },
+    {
+        "id": 3,
+        "title": "LRU Cache Simulator",
+        "description": "This is a program that simulates cache memory that uses the Least Recently Used Policy which replaces least recently used memory blocks to make room for incoming data. This project taught me a lot about the workings of cache memory and working with memory addresses.",
+        "tools": ["C++", "Linux", "Github"],
+        "image": "/CacheImage.png",
+        "github": "https://github.com/noahgumm/LRU-Cache-Simulator"
+    }
+]

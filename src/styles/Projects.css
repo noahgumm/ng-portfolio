@@ -1,24 +1,23 @@
 /* === Section container === */
-.section {
+.project-section {
   height: 100vh;
   width: 100vw;
   scroll-snap-align: start;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #393E41;
+  background-color: #1E1E2F;
   color: white;
   position: relative;
   overflow: hidden;
 }
 
 /* === Carousel container === */
-.carousel {
+.project-carousel {
   width: 100%;
   height: 100%;
-  background-color: #393E41;
+  background-color: #1E1E2F;
   color: #F6F7EB;
-  border-top: 0.25em solid white;
   box-sizing: border-box;
   padding: 1em;
   position: relative;
@@ -26,13 +25,13 @@
 }
 
 /* === Grid for 6 cards per carousel page === */
-.carousel-item {
+.project-carousel-item {
   display: none;
   width: 100%;
   height: 100%;
 }
 
-.carousel-item.active {
+.project-carousel-item.active {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -44,7 +43,7 @@
 }
 
 /* Fallback (optional) for direct grid rendering if used */
-.carousel-grid {
+.project-carousel-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -54,28 +53,34 @@
 }
 
 /* === Navigation Buttons === */
-.backButton,
-.forwardButton {
-  width: 2em;
-  height: 2em;
+.project-backButton,
+.project-forwardButton {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: white;
+  background: none;
   border: none;
+  color: white;
+  font-size: 2rem;
   padding: 1rem;
-  font-size: 1rem;
   cursor: pointer;
   z-index: 10;
-  border-radius: 50%;
-  background-color: transparent;
+  transition: color 0.2s ease;
 }
 
-.backButton {
+.project-backButton:hover,
+.project-forwardButton:hover {
+  background-color: transparent;
+  scale: 125%;
+  box-shadow: none;
+  outline: none;
+}
+
+.project-backButton {
   left: 1rem;
 }
 
-.forwardButton {
+.project-forwardButton {
   right: 1rem;
 }
 
@@ -86,13 +91,13 @@
   height: 60%;
   display: grid;
   grid-template-rows: auto 150px 1fr auto;
-  margin-top: 1em;
+  margin-top: 15vh;
   padding: 0.5em;
-  border: 2px solid white;
+  border: 2px solid  #FFC857;
   border-radius: 0.5em;
-  background-color: #2e2e2e;
+  background-color: #2A2A3C;
   color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1em rgba(78, 204, 163, 0.25);
   transition: transform 0.3s ease;
   cursor: pointer;
   overflow: hidden;
@@ -102,8 +107,8 @@
   transform: scale(1.03);
 }
 
-.projectCard .title h3 {
-  font-size: 0.6em;
+.projectCard .title h1 {
+  font-size: 1.5em;
   margin: 0;
   line-height: 1.2;
   top: -15%;
@@ -126,9 +131,9 @@
 /* Tools at the bottom */
 .projectCard .toolsUsed {
   align-self: end;
-  font-size: 0.5em;
+  font-size: 1em;
   padding: 0.1em 0.1em;
-  padding-bottom: 4em;
+  padding-bottom: 0em;
 }
 
 .projectCard .toolsUsed h4,
@@ -156,6 +161,7 @@
 
 .projectCard.expanded .imagePreview {
   height: 40vh;
+  object-fit: contain;
 }
 
 .projectCard.expanded .descSnippet {
@@ -195,7 +201,7 @@
 .expandedProjectContainer {
   width: 100vw;
   height: 100vh;
-  background-color: #393E41;
+  background-color: #1E1E2F;
   display: flex;
   align-items: center;
   justify-content: center;

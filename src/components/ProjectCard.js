@@ -5,7 +5,7 @@ export function ProjectCard({ onClick, expanded, title, tools, description, imag
       onClick={onClick}
     >
       <div className="title">
-        <h3>{title}</h3>
+        <h1>{title}</h1>
       </div>
       <div className="imagePreview">
         <img src={image} alt="Project screenshot" />

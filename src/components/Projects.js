@@ -2,13 +2,21 @@ import "../styles/Projects.css";
 import { ProjectCard } from "./ProjectCard";
 import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import codeImage from "../images/code2.png";
+import projectData from "../data/projects.json";
 
 export default function Project() {
   const [carouselIndex, setCarouselIndex] = useState(1);
   const [expandedIndex, setExpandedIndex] = useState(null);
 
+  // Max num of items within carousel
   const maxItems = 3;
+  //Load projects from json
+  const [projects] = useState(projectData);
+  // Calculate projects per page (6 for 2x3)
+  const projectsPerPage = 6;
+  // Get current page projects
+  const startIdx = (carouselIndex - 1) * projectsPerPage;
+  const currentProjects = projects.slice(startIdx, startIdx + projectsPerPage);
 
   const increaseIndex = () => {
     setCarouselIndex((prev) => (prev % maxItems) + 1);
@@ -22,32 +30,16 @@ export default function Project() {
     setExpandedIndex(index === expandedIndex ? null : index);
   };
 
-  // Sample project data (could be replaced with real data)
-  const projects = [...Array(18).keys()].map((i) => ({
-    id: i,
-    title: "My Awesome Project",
-    tools: "React, Node.js, MongoDB",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo, nunc eget tincidunt luctus, nunc lorem dignissim nisl, a lobortis elit leo at libero.",
-  }));
-
-  // Calculate projects per page (6 for 2x3)
-  const projectsPerPage = 6;
-
-  // Get current page projects
-  const startIdx = (carouselIndex - 1) * projectsPerPage;
-  const currentProjects = projects.slice(startIdx, startIdx + projectsPerPage);
-
   return (
-    <div className="section" id="projects">
-      <div className="carousel">
+    <div className="project-section" id="projects">
+      <div className="project-carousel">
         {/* Show buttons only when not expanded */}
         {!expandedIndex && (
           <>
-            <button className="backButton" onClick={decreaseIndex}>
+            <button className="project-backButton" onClick={decreaseIndex}>
               <FaArrowLeft />
             </button>
-            <button className="forwardButton" onClick={increaseIndex}>
+            <button className="project-forwardButton" onClick={increaseIndex}>
               <FaArrowRight />
             </button>
           </>
@@ -60,14 +52,16 @@ export default function Project() {
               expanded
               onClick={() => toggleExpand(expandedIndex)}
               title={projects[expandedIndex].title}
-              tools={projects[expandedIndex].tools}
+              tools={projects[expandedIndex].tools.join(", ")}
               description={projects[expandedIndex].description}
-              image={codeImage}
+              image={process.env.PUBLIC_URL + projects[expandedIndex].image}
             />
           </div>
         ) : (
           // Otherwise show carousel grid
-          <div className="carousel-grid">
+          <div className="project-carousel-grid" style={{
+            paddingTop: currentProjects.length <= 3 ? "20vh" : "0vh",
+            }}>
             {currentProjects.map((proj, i) => {
               const globalIndex = startIdx + i;
               return (
@@ -76,9 +70,9 @@ export default function Project() {
                   className="project"
                   onClick={() => toggleExpand(globalIndex)}
                   title={proj.title}
-                  tools={proj.tools}
+                  tools={proj.tools.join(", ")}
                   description={proj.description}
-                  image={codeImage}
+                  image={process.env.PUBLIC_URL + proj.image}
                 />
               );
             })}
