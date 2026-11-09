@@ -1,19 +1,27 @@
-import NavBar from './components/NavBar.js';
-import Intro from './components/Intro.js';
-import Projects from './components/Projects.js';
-import Contact from './components/Contact.js';
-import './App.css';
+import NavBar from "./components/NavBar.js";
+import Intro from "./components/Intro.js";
+import TechStrip from "./components/TechStrip.js";
+import About from "./components/About.js";
+import Projects from "./components/Projects.js";
+import Contact from "./components/Contact.js";
+import Footer from "./components/Footer.js";
 
 function App() {
   return (
-    <div>
+    <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <NavBar />
-      <div className='scrollContainer'>
+      <main id="main">
         <Intro />
+        <TechStrip />
+        <About />
         <Projects />
         <Contact />
-      </div>
-    </div>
+      </main>
+      <Footer />
+    </>
   );
 }
 
