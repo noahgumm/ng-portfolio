@@ -1,8 +1,8 @@
 {
-  "short_name": "NG Portfolio",
-  "name": "Noah Gumm's Portolio",
+  "short_name": "Noah Gumm",
+  "name": "Noah Gumm — Software Developer Portfolio",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0A0A12",
+  "background_color": "#0A0A12"
 }
