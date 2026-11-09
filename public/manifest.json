@@ -1,0 +1,8 @@
+{
+  "short_name": "NG Portfolio",
+  "name": "Noah Gumm's Portolio",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

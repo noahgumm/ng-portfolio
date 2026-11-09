@@ -1,0 +1,252 @@
+/* === Section container === */
+.project-section {
+  height: 100vh;
+  width: 100vw;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1E1E2F;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* === Carousel container === */
+.project-carousel {
+  width: 100%;
+  height: 100%;
+  background-color: #1E1E2F;
+  color: #F6F7EB;
+  box-sizing: border-box;
+  padding: 1em;
+  position: relative;
+  overflow: hidden;
+}
+
+/* === Grid for 6 cards per carousel page === */
+.project-carousel-item {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.project-carousel-item.active {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1em;
+  padding: 2rem;
+  box-sizing: border-box;
+  justify-items: center;
+  align-items: stretch;
+}
+
+/* Fallback (optional) for direct grid rendering if used */
+.project-carousel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  box-sizing: border-box;
+  justify-items: center;
+  align-items: stretch;
+}
+
+/* === Navigation Buttons === */
+.project-backButton,
+.project-forwardButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s ease;
+}
+
+.project-backButton:hover,
+.project-forwardButton:hover {
+  background-color: transparent;
+  scale: 125%;
+  box-shadow: none;
+  outline: none;
+}
+
+.project-backButton {
+  left: 1rem;
+}
+
+.project-forwardButton {
+  right: 1rem;
+}
+
+/* === Project Card Base === */
+.projectCard {
+  width: 100%;
+  max-width: 300px;
+  height: 60%;
+  display: grid;
+  grid-template-rows: auto 150px 1fr auto;
+  margin-top: 15vh;
+  padding: 0.5em;
+  border: 2px solid  #FFC857;
+  border-radius: 0.5em;
+  background-color: #2A2A3C;
+  color: white;
+  box-shadow: 0 0 1em rgba(78, 204, 163, 0.25);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.projectCard:hover {
+  transform: scale(1.03);
+}
+
+.projectCard .title h1 {
+  font-size: 1.5em;
+  margin: 0;
+  line-height: 1.2;
+  top: -15%;
+  padding: 0.1em 0.1em;
+}
+
+.projectCard .imagePreview {
+  height: 150px;
+  overflow: hidden;
+  border-radius: 0.25em;
+}
+
+.projectCard .imagePreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Tools at the bottom */
+.projectCard .toolsUsed {
+  align-self: end;
+  font-size: 1em;
+  padding: 0.1em 0.1em;
+  padding-bottom: 0em;
+}
+
+.projectCard .toolsUsed h4,
+.projectCard .toolsUsed p {
+  margin: 0;
+}
+
+/* Hide description in collapsed state */
+.projectCard:not(.expanded) .descSnippet {
+  display: none;
+}
+
+/* === Expanded Card Styles === */
+.projectCard.expanded {
+  grid-template-rows: auto 40vh auto 1fr;
+  width: 80vw;
+  height: 70vh;
+  max-width: none;
+  max-height: none;
+  padding: 2em;
+  cursor: default;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.projectCard.expanded .imagePreview {
+  height: 40vh;
+  object-fit: contain;
+}
+
+.projectCard.expanded .descSnippet {
+  display: block;
+  overflow-y: auto;
+  max-height: 35vh;
+  padding-right: 1em;
+  font-size: 1rem;
+  margin-top: 1em;
+}
+
+.projectCard.expanded .title h3 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.projectCard.expanded .toolsUsed h4,
+.projectCard.expanded .toolsUsed p {
+  font-size: 1.2rem;
+}
+
+/* Optional close button inside card (if re-enabled) */
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3em;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* === Expanded Project Container (fullscreen view wrapper) === */
+.expandedProjectContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1E1E2F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+/* === Responsive Adjustments === */
+@media only screen and (max-width: 1200px) {
+  .carousel-item.active,
+  .carousel-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .projectCard {
+    max-width: 90%;
+    grid-template-rows: auto 140px 1fr auto;
+  }
+
+  .projectCard.expanded {
+    width: 95vw;
+    height: 70vh;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .carousel-item.active,
+  .carousel-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, auto);
+  }
+
+  .projectCard {
+    width: 90vw;
+    height: auto;
+    grid-template-rows: auto 140px 1fr auto;
+  }
+
+  .projectCard.expanded {
+    width: 95vw;
+    height: 70vh;
+  }
+}
